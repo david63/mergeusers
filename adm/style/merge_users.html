@@ -1,0 +1,47 @@
+{% include '@' ~ NAMESPACE ~ '/head_panel.html' %}
+
+<form id="user_merge" method="post" action="{U_ACTION}">
+	<fieldset>
+		<legend>{{ lang('MERGE_USERS') }}</legend>
+		<dl>
+			<dt><label for="old_username">{{ lang('OLD_USER') }}{{ lang('COLON') }}</label><br><span>{{ lang('OLD_USER_EXPLAIN') }}</span></dt>
+			<dd>
+				<input class="textbox" type="text" id="old_username" name="old_username" value="{OLD_USERNAME}" />
+			</dd>
+			<dd>
+				[ <a href="{{ U_FIND_OLD_USERNAME }}" onclick="find_username(this.href); return false;">{{ lang('FIND_USERNAME') }}</a> ]
+			</dd>
+		</dl>
+
+		<dl>
+			<dt><label for="new_username">{{ lang('NEW_USER') }}{{ lang('COLON') }}</label><br><span>{{ lang('NEW_USER_EXPLAIN') }}</span></dt>
+			<dd>
+				<input class="textbox" type="text" id="new_username" name="new_username" value="{NEW_USERNAME}" />
+			</dd>
+			<dd>
+				[ <a href="{{ U_FIND_NEW_USERNAME }}" onclick="find_username(this.href); return false;">{{ lang('FIND_USERNAME') }}</a> ]
+			</dd>
+		</dl>
+
+		<dl>
+			<dt><label for="delete_old_user">{{ lang('DELETE_OLD_USER') }}{{ lang('COLON') }}</label></dt>
+			<dd>
+				<span class="checkbox">
+					<input type="checkbox">
+					<input type="checkbox" name="delete_old_user" id="delete_old_user"  checked="checked" />
+					<label data-on="✔" data-off="✘"></label>
+				</span>
+			</dd>
+		</dl>
+	</fieldset>
+
+	<fieldset>
+		<p class="submit-buttons">
+			<input class="adm-button" type="submit" id="submit" name="submit" value="{{ lang('SUBMIT') }}" />&nbsp;
+			<input class="adm-button" type="reset" id="reset" name="reset" value="{{ lang('RESET') }}" />
+		</p>
+		{{ S_FORM_TOKEN }}
+	</fieldset>
+</form>
+
+{% include '@' ~ NAMESPACE ~ '/donate.html' %}
