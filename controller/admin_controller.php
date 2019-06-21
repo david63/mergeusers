@@ -264,7 +264,7 @@ class admin_controller implements admin_interface
 
 		// Add up the total number of posts for both...
 		$sql = 'SELECT user_posts
-			FROM ' . USERS_TABLE . '
+			FROM ' . $this->tables['users'] . '
 			WHERE ' . $this->db->sql_in_set('user_id', array($old_user, $new_user));
 		$result = $this->db->sql_query($sql);
 
@@ -276,7 +276,7 @@ class admin_controller implements admin_interface
 		$this->db->sql_freeresult($result);
 
 		// Now set the new user to have the total amount of posts.  ;)
-		$this->db->sql_query('UPDATE ' . USERS_TABLE . ' SET ' . $this->db->sql_build_array('UPDATE', array(
+		$this->db->sql_query('UPDATE ' . $this->tables['users'] . ' SET ' . $this->db->sql_build_array('UPDATE', array(
 			'user_posts' => $total_posts,
 		)) . ' WHERE user_id = ' . $new_user);
 
@@ -286,7 +286,7 @@ class admin_controller implements admin_interface
 		foreach (array($old_user, $new_user) as $key)
 		{
 			$sql = 'SELECT user_id, username, user_colour
-				FROM ' . USERS_TABLE . '
+				FROM ' . $this->tables['users'] . '
 					WHERE user_id = ' . $key;
 			$result = $this->db->sql_query($sql);
 
@@ -296,16 +296,16 @@ class admin_controller implements admin_interface
 		}
 
 		$update_ary = array(
-			ATTACHMENTS_TABLE		=> array('poster_id'),
-			FORUMS_TABLE			=> array(array('forum_last_poster_id', 'forum_last_poster_name', 'forum_last_poster_colour')),
-			LOG_TABLE				=> array('user_id', 'reportee_id'),
-			MODERATOR_CACHE_TABLE	=> array(array('user_id', 'username')),
-			POSTS_TABLE				=> array(array('poster_id', 'post_username'), 'post_edit_user'),
-			POLL_VOTES_TABLE		=> array('vote_user_id'),
-			PRIVMSGS_TABLE			=> array('author_id', 'message_edit_user'),
-			PRIVMSGS_TO_TABLE		=> array('user_id', 'author_id'),
-			REPORTS_TABLE			=> array('user_id'),
-			TOPICS_TABLE			=> array(array('topic_poster', 'topic_first_poster_name', 'topic_first_poster_colour'), array('topic_last_poster_id', 'topic_last_poster_name', 'topic_last_poster_colour')),
+			$this->tables['attachments']		=> array('poster_id'),
+			$this->tables['forums']				=> array(array('forum_last_poster_id', 'forum_last_poster_name', 'forum_last_poster_colour')),
+			$this->tables['log']				=> array('user_id', 'reportee_id'),
+			$this->tables['moderator_cache']	=> array(array('user_id', 'username')),
+			$this->tables['posts']				=> array(array('poster_id', 'post_username'), 'post_edit_user'),
+			$this->tables['poll_votes']			=> array('vote_user_id'),
+			$this->tables['privmsgs']			=> array('author_id', 'message_edit_user'),
+			$this->tables['privmsgs_to']		=> array('user_id', 'author_id'),
+			$this->tables['reports']			=> array('user_id'),
+			$this->tables['topics']				=> array(array('topic_poster', 'topic_first_poster_name', 'topic_first_poster_colour'), array('topic_last_poster_id', 'topic_last_poster_name', 'topic_last_poster_colour')),
 		);
 
 		foreach ($update_ary as $table => $field_ary)
@@ -346,7 +346,7 @@ class admin_controller implements admin_interface
 		}
 		else // Reset post count to zero
 		{
-			$sql = 'UPDATE ' . USERS_TABLE .
+			$sql = 'UPDATE ' . $this->tables['users'] .
 				" SET user_posts = 0
 				WHERE user_id = $old_user";
 			$this->db->sql_query($sql);
