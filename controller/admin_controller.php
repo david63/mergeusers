@@ -117,7 +117,7 @@ class admin_controller implements admin_interface
 			}
 		}
 
-		if($submit || $merge)
+		if ($submit || $merge)
 		{
 			$old_user_id = $this->check_user($old_username, $errors, true);
 			$new_user_id = $this->check_user($new_username, $errors, false);
@@ -132,9 +132,9 @@ class admin_controller implements admin_interface
 				$errors[] = $this->language->lang('NO_DATA');
 			}
 
-			if(empty($errors))
+			if (empty($errors))
 			{
-				if(confirm_box(true))
+				if (confirm_box(true))
 				{
 					$this->user_merge($old_user_id, $old_username, $new_user_id, $delete_old);
 					$this->log->add('admin', $this->user->data['user_id'], $this->user->ip, 'LOG_USERS_MERGED',  time(), array($old_username, $new_username));
@@ -225,14 +225,14 @@ class admin_controller implements admin_interface
 		}
 
 		// Check to see if it is ourselves here
-		if($user_id === (int) $this->user->data['user_id'] && $old_user)
+		if ($user_id === (int) $this->user->data['user_id'] && $old_user)
 		{
 			$errors[] = $this->language->lang('CANNOT_MERGE_SELF');
 			return;
 		}
 
 		// Make sure this isn't a founder
-		if($user_type === USER_FOUNDER && $old_user && $this->user->data['user_type'] !== USER_FOUNDER)
+		if ($user_type === USER_FOUNDER && $old_user && $this->user->data['user_type'] !== USER_FOUNDER)
 		{
 			$errors[] = $this->language->lang('CANNOT_MERGE_FOUNDER');
 			return;
@@ -268,7 +268,7 @@ class admin_controller implements admin_interface
 			WHERE ' . $this->db->sql_in_set('user_id', array($old_user, $new_user));
 		$result = $this->db->sql_query($sql);
 
-		while($return = $this->db->sql_fetchrow($result))
+		while ($return = $this->db->sql_fetchrow($result))
 		{
 			$total_posts = $total_posts + (int) $return['user_posts'];
 		}

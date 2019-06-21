@@ -43,5 +43,3 @@ $lang = array_merge($lang, array(
 	'LOG_MERGED_DELETED'	=> '<strong>Merged user deleted</strong> » %1$s',
 	'LOG_USERS_MERGED'		=> '<strong>Merged users</strong><br>%1$s » %2$s',
 ));
-
-?>
