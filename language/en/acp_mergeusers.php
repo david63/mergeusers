@@ -49,8 +49,6 @@ $lang = array_merge($lang, array(
 
 	'NEW_USER'					=> 'New username',
 	'NEW_USER_EXPLAIN'			=> 'The new user that the old user should be merged into.<br><strong>Note: This user must already exist.</strong>',
-	'NEW_VERSION'				=> 'New Version',
-	'NEW_VERSION_EXPLAIN'		=> 'There is a newer version of this extension available.',
 	'NO_DATA'					=> 'No users have been entered',
 	'NO_NEW_USER'				=> 'The <strong>new</strong> user for merging could not be located within the database.',
 	'NO_NEW_USER_SPECIFIED'		=> 'The <strong>new</strong> user for merging was not specified.',
@@ -62,16 +60,4 @@ $lang = array_merge($lang, array(
 
 	'USERS_MERGED'				=> 'User %1$s was successfully merged with user %2$s and no users were deleted.',
 	'USERS_MERGED_DELETED'		=> 'User %1$s was successfully merged with user %2$s and user %1$s was deleted.',
-
-	'VERSION'					=> 'Version',
-));
-
-// Donate
-$lang = array_merge($lang, array(
-	'DONATE'					=> 'Donate',
-	'DONATE_EXTENSIONS'			=> 'Donate to my extensions',
-	'DONATE_EXTENSIONS_EXPLAIN'	=> 'This extension, as with all of my extensions, is totally free of charge. If you have benefited from using it then please consider making a donation by clicking the PayPal donation button opposite - I would appreciate it. I promise that there will be no spam nor requests for further donations, although they would always be welcome.',
-
-	'PAYPAL_BUTTON'				=> 'Donate with PayPal button',
-	'PAYPAL_TITLE'				=> 'PayPal - The safer, easier way to pay online!',
 ));
