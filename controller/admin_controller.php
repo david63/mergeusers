@@ -283,7 +283,7 @@ class admin_controller implements admin_interface
 		// Now set the new user to have the total amount of posts.  ;)
 		$this->db->sql_query('UPDATE ' . $this->tables['users'] . ' SET ' . $this->db->sql_build_array('UPDATE', array(
 			'user_posts' => $total_posts,
-		)) . ' WHERE user_id = ' . $new_user);
+		)) . ' WHERE user_id = ' . (int) $new_user);
 
 		// Get both users userdata
 		$data = array();
@@ -292,7 +292,7 @@ class admin_controller implements admin_interface
 		{
 			$sql = 'SELECT user_id, username, user_colour
 				FROM ' . $this->tables['users'] . '
-					WHERE user_id = ' . $key;
+					WHERE user_id = ' . (int) $key;
 			$result = $this->db->sql_query($sql);
 
 			$data[$key] = $this->db->sql_fetchrow($result);
