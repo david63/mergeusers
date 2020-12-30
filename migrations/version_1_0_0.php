@@ -13,7 +13,7 @@ class version_1_0_0 extends \phpbb\db\migration\migration
 {
 	public function update_data()
 	{
-		$update_data = array();
+		$update_data = [];
 
 		if ($this->module_check())
 		{

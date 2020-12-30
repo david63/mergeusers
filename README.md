@@ -2,15 +2,20 @@
 
 Adds an ACP option to allow the merging of two users into one, with the main user taking ownership of all topics, attachments, PMs, etc. of both users.
 
-[![Build Status](https://travis-ci.com/david63/mergeusers.svg?branch=master)](https://travis-ci.com/david63/mergeusers)
+[![Build Status](https://github.com/david63/mergeusers/workflows/Tests/badge.svg)](https://github.com/phpbb-extensions/david63/mergeusers)
 [![License](https://poser.pugx.org/david63/mergeusers/license)](https://packagist.org/packages/david63/mergeusers)
 [![Latest Stable Version](https://poser.pugx.org/david63/mergeusers/v/stable)](https://packagist.org/packages/david63/mergeusers)
 [![Latest Unstable Version](https://poser.pugx.org/david63/mergeusers/v/unstable)](https://packagist.org/packages/david63/mergeusers)
 [![Total Downloads](https://poser.pugx.org/david63/mergeusers/downloads)](https://packagist.org/packages/david63/mergeusers)
+[![codecov](https://codecov.io/gh/david63/mergeusers/branch/master/graph/badge.svg?token=D2500PgRex)](https://codecov.io/gh/david63/mergeusers)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/04d287b5f56b403e909b38550d96a1ea)](https://www.codacy.com/manual/david63/mergeusers?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=david63/mergeusers&amp;utm_campaign=Badge_Grade)
+
+[![Compatible](https://img.shields.io/badge/compatible-phpBB:3.2.x-blue.svg)](https://shields.io/)
+[![Compatible](https://img.shields.io/badge/compatible-phpBB:3.3.x-blue.svg)](https://shields.io/)
 
 ## Minimum Requirements
-* phpBB 3.2.0
-* PHP 5.4
+* phpBB 3.3.0
+* PHP 7.1.3
 
 ## Install
 1. [Download the latest release](https://github.com/david63/mergeusers/archive/3.2.zip) and unzip it.
@@ -29,4 +34,4 @@ Adds an ACP option to allow the merging of two users into one, with the main use
 ## License
 [GNU General Public License v2](http://opensource.org/licenses/GPL-2.0)
 
-© 2019 - David Wood
+© 2020 - David Wood

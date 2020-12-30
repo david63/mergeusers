@@ -93,8 +93,7 @@ class admin_controller implements admin_interface
 	public function display_output()
 	{
 		// Add the language files
-		$this->language->add_lang('acp_mergeusers', $this->functions->get_ext_namespace());
-		$this->language->add_lang('acp_common', $this->functions->get_ext_namespace());
+		$this->language->add_lang(array('acp_mergeusers', 'acp_common'), $this->functions->get_ext_namespace());
 
 		$form_key = 'mergeusers';
 		add_form_key($form_key);
@@ -108,7 +107,7 @@ class admin_controller implements admin_interface
 		$new_username	= utf8_normalize_nfc($this->request->variable('new_username', '', true));
 		$delete_old		= $this->request->variable('delete_old_user', '');
 
-		$errors = array();
+		$errors = [];
 
 		if ($submit)
 		{
@@ -286,7 +285,7 @@ class admin_controller implements admin_interface
 		)) . ' WHERE user_id = ' . (int) $new_user);
 
 		// Get both users userdata
-		$data = array();
+		$data = [];
 
 		foreach (array($old_user, $new_user) as $key)
 		{
@@ -317,7 +316,7 @@ class admin_controller implements admin_interface
 		{
 			foreach ($field_ary as $field)
 			{
-				$sql_ary = array();
+				$sql_ary = [];
 
 				if (!is_array($field))
 				{
